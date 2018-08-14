@@ -35,13 +35,13 @@ public class Human implements Serializable {
 
     public static void main(String[] args) {
         Human human = new Human("Tymon", 7);
-        human.writeHumanObject(human);
+        human.writeObject(human);
         System.out.println("Serialized object: " + human.getName() + ", " + human.getAge());
-        human.readHumanObject(human);
+        human.readObject(human);
         System.out.println("Deserialized object: " + human.getName() + ", " + human.getAge());
     }
 
-    public void writeHumanObject(Object object) {
+    public void writeObject(Object object) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("object.bin"))) {
             outputStream.writeObject(object);
             outputStream.writeInt(getYearOfBirth());
@@ -52,7 +52,7 @@ public class Human implements Serializable {
         }
     }
 
-    public void readHumanObject(Object object) {
+    public void readObject(Object object) {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("object.bin"))) {
             object = (Object) inputStream.readObject();
             int yearOfBirth = inputStream.readInt();
