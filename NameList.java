@@ -19,7 +19,7 @@ public class NameList  implements Serializable {
     public static void getNamesFromUser(List<String> nameList) {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("Podaj imię które chcesz zapisać w pliku lub wprowadź \"-\" jeżeli chesz zakończyć dodawanie imion.");
+            System.out.println("Podaj imię które chcesz zapisać w pliku lub wprowadź \"" + EXIT + "\" jeżeli chesz zakończyć dodawanie imion.");
             String name = sc.nextLine();
             if (name.equals(EXIT)) {
                 break;
